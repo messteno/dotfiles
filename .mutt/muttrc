@@ -42,9 +42,13 @@ unset markers # no + signs
 lists "messteno@gmail.com" "artal2005@mail.ru"
 #set reverse_name  
 set from="messteno@gmail.com"
-alternates messteno@gmail.com|artal2005@mail.ru"
+set sendmail="/usr/bin/msmtp"
+alternates "messteno@gmail.com|artal2005@mail.ru"
 set date_format  = "%d/%m"
 set index_format = "%4C %Z %D  %-15.15F %s %*  %4c"
+
+# Msmtp settings
+
 
 # Sidebar Patch --------------------------------------
 set sidebar_delim   = '  │'
