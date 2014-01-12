@@ -1,0 +1,8 @@
+[Unit]
+Description=Runs mbsync each timeout
+
+[Timer]
+OnUnitInactiveSec=30
+
+[Install]
+WantedBy=xinitrc.target

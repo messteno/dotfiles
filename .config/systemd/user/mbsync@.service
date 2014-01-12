@@ -1,0 +1,9 @@
+[Unit]
+Description=Start mbsync for mbox: %i
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mbsync -q %i
+
+[Install]
+WantedBy=xinitrc.target
