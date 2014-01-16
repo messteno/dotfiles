@@ -151,6 +151,18 @@ musicwidget.servers = {
 mailicon = wibox.widget.imagebox()
 mailicon:set_image(theme.mail)
 
+kbdwidget = wibox.widget.textbox()
+kbdwidget:set_markup(" EN ")
+dbus.request_name("session", "ru.gentoo.kbdd")
+dbus.add_match("session", "interface='ru.gentoo.kbdd',member='layoutChanged'")
+dbus.connect_signal("ru.gentoo.kbdd", function(...)
+    local data = {...}
+    local layout = data[2]
+    lts = {[0] = " EN ", [1] = " RU "}
+    kbdwidget:set_markup(lts[layout])
+    end
+)
+
 local mdirmw = require('mdirm')
 mailwidget = wibox.widget.textbox()
 vicious.register(mailwidget, mdirmw, "<span color='#0077ff'> $1/$2/$3 </span>", 5, { "/home/mesteno/Mail/gmail/Inbox/" } )
@@ -212,6 +224,7 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     right_layout:add(musicwidget.widget)
+    right_layout:add(kbdwidget)
     right_layout:add(mailicon)
     right_layout:add(mailwidget)
     right_layout:add(systray)
