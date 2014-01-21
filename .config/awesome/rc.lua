@@ -23,4 +23,5 @@ dofile (CONFIG_FOLDER .. "/toolbar.lua")
 dofile (CONFIG_FOLDER .. "/keybindings.lua")
 dofile (CONFIG_FOLDER .. "/rules.lua")
 dofile (CONFIG_FOLDER .. "/signals.lua")
+dofile (CONFIG_FOLDER .. "/autorun.lua")
 

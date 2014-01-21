@@ -60,6 +60,9 @@ globalkeys = awful.util.table.join(
               end),
 
     -- My bindings
+    awful.key({ }, "XF86AudioPlay", musicwidget:command_toggle() ),
+    awful.key({ }, "XF86AudioNext", musicwidget:command_next_track() ),
+    awful.key({ }, "XF86AudioPrev", musicwidget:command_prev_track() ),
     awful.key({ }, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer set Master 2%+") end),
     awful.key({ }, "XF86AudioLowerVolume", function () awful.util.spawn("amixer set Master 2%-") end),
     awful.key({ }, "XF86AudioMute", function () awful.util.spawn("amixer sset Master toggle") end)
@@ -129,7 +132,8 @@ end
 clientbuttons = awful.util.table.join(
     awful.button({ }, 1, function (c) client.focus = c; c:raise() end),
     awful.button({ modkey }, 1, awful.mouse.client.move),
-    awful.button({ modkey }, 3, awful.mouse.client.resize))
+    awful.button({ modkey }, 3, awful.mouse.client.resize)
+)
 
 -- Set keys
 root.keys(globalkeys)

@@ -28,6 +28,15 @@ vicious.register(batwidget, vicious.widgets.bat,
     function (widget, args)
         if args[2] == 0 then return ""
         elseif args[2] < 20 then
+            naughty.notify({ title = "Battery Warning",
+                text               = "Battery low! " .. args[2] .. "%" .. " left!",
+                fg                 = "#ff0000",
+                bg                 = "#121212",
+                timeout            = 15,
+                position           = "top_right",
+                border_width       = 2,
+                font               = "Ubuntu Mono Bold 10",
+            })
             baticon:set_image(theme.bat_empty)
             return "<span color='#ff0000'><b>" .. args[2] .. "%</b></span>"
         elseif args[2] < 40 then
@@ -147,6 +156,15 @@ musicwidget.servers = {
     { server = "localhost",
     port = 6600 },
 }
+-- Set the buttons of the widget
+musicwidget:register_buttons({ 
+    { "", awesompd.MOUSE_LEFT, musicwidget:command_next_track() },
+    { "", awesompd.MOUSE_RIGHT, musicwidget:command_prev_track() },
+    { "Control", awesompd.MOUSE_LEFT, musicwidget:command_toggle() },
+--    { "Control", awesompd.MOUSE_RIGHT, musicwidget:command_show_menu() },
+})
+musicwidget:run() -- After all configuration is done, run the widget
+
 
 mailicon = wibox.widget.imagebox()
 mailicon:set_image(theme.mail)
@@ -170,17 +188,7 @@ mailwidget:buttons(awful.util.table.join(
    awful.button({ }, 1, function () awful.util.spawn(terminal .. " -e mutt") end)
 ))
 
--- Set the buttons of the widget
-musicwidget:register_buttons({ 
-    { "", awesompd.MOUSE_LEFT, musicwidget:command_next_track() },
-    { "", awesompd.MOUSE_RIGHT, musicwidget:command_prev_track() },
-    { "Control", awesompd.MOUSE_LEFT, musicwidget:command_toggle() },
-    { "Control", awesompd.MOUSE_RIGHT, musicwidget:command_show_menu() },
-})
-musicwidget:run() -- After all configuration is done, run the widget
 
-
--- {{{ Wibox
 -- Create a textclock widget
 mytextclock = awful.widget.textclock("%a %b %d, %H:%M")
 
