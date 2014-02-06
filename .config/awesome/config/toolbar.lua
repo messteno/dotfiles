@@ -89,7 +89,7 @@ core1:set_background_color("#494b4f")
 core1:set_color("#ff9300")
 core1:set_border_color("#132224")
 -- Register widget
-vicious.register(core1, vicious.widgets.cpu, "$2", 1)
+vicious.register(core1, vicious.widgets.cpu, "$2")
 
 -- Initialize widget
 core2 = awful.widget.progressbar()
@@ -101,7 +101,7 @@ core2:set_background_color("#494b4f")
 core2:set_color("#ff9300")
 core2:set_border_color("#132224")
 -- Register widget
-vicious.register(core2, vicious.widgets.cpu, "$2", 2)
+vicious.register(core2, vicious.widgets.cpu, "$3")
 
 -- Initialize widget
 core3 = awful.widget.progressbar()
@@ -113,7 +113,7 @@ core3:set_background_color("#494b4f")
 core3:set_color("#ff9300")
 core3:set_border_color("#132224")
 -- Register widget
-vicious.register(core3, vicious.widgets.cpu, "$2", 3)
+vicious.register(core3, vicious.widgets.cpu, "$4")
 
 -- Initialize widget
 core4 = awful.widget.progressbar()
@@ -125,7 +125,7 @@ core4:set_background_color("#494b4f")
 core4:set_color("#ff9300")
 core4:set_border_color("#132224")
 -- Register widget
-vicious.register(core4, vicious.widgets.cpu, "$2", 4)
+vicious.register(core4, vicious.widgets.cpu, "$5")
 
 -- Initialize widget
 cputext = wibox.widget.textbox()
@@ -182,8 +182,30 @@ dbus.connect_signal("ru.gentoo.kbdd", function(...)
 )
 
 local mdirmw = require('mdirm')
+local mailnotified = false
 mailwidget = wibox.widget.textbox()
-vicious.register(mailwidget, mdirmw, "<span color='#0077ff'> $1/$2/$3 </span>", 5, { "/home/mesteno/Mail/gmail/Inbox/" } )
+vicious.register(mailwidget, mdirmw, 
+    function (widget, args)
+        if args[1] > 0 then
+            if mailnotified == false then
+                naughty.notify({ title = "New Mail",
+                    text               = "You have new mail! Check it!",
+                    fg                 = "#6666ff",
+                    bg                 = "#121212",
+                    timeout            = 5,
+                    position           = "top_right",
+                    border_width       = 2,
+                    font               = "Ubuntu Mono Bold 10",
+                })
+            end
+            mailnotified = true
+        else
+            mailnotified = false
+        end
+        return "<span color='#0077ff'> " .. args[1] .. "/" .. args[2] .. "/" .. args[3] .." </span>"
+    end,
+    5, { "/home/mesteno/Mail/gmail/Inbox/" } 
+)
 mailwidget:buttons(awful.util.table.join(
    awful.button({ }, 1, function () awful.util.spawn(terminal .. " -e mutt") end)
 ))
