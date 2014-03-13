@@ -20,4 +20,6 @@ else
     export TERM=xterm-256color
 fi
 
+[ -n "$TMUX" ] && export TERM=screen-256color
+
 

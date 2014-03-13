@@ -1,11 +1,13 @@
 background() {
-   '$@' &
+   "$@" &
 }
 
 autoload -U zsh-mime-setup
 autoload -U pick-web-browser
 zsh-mime-setup
 
+alias vfm="background urxvt -e vifm"
+alias ssh='TERM=xterm ssh'
 alias grep='grep --color=auto'
 alias df='df -h'
 alias du='du -h'
@@ -51,4 +53,3 @@ alias -s {jpg,jpeg,gif,png,JPG,PNG,JPEG,GIF}='background geeqie'
 alias -s {ARW,RAW}=darktable
 alias -s {pdf}=evince
 alias -s tex=vim
-
