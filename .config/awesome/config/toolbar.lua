@@ -136,7 +136,28 @@ thermicon = wibox.widget.imagebox()
 thermicon:set_image(theme.thermal)
 -- {{{ CPU temperature
 therm  = wibox.widget.textbox()
-vicious.register(therm, vicious.widgets.thermal, "<span color='#dedd76'>$1°C</span>", 20, { "thermal_zone0", "sys"} )
+tempnotified = false
+vicious.register(therm, vicious.widgets.thermal, 
+    function (widget, args)
+        if args[1] > 87 then
+            if tempnotified == false then
+                naughty.notify({ title = "High temerature!",
+                    text               = "Temperature is critical!",
+                    fg                 = "#a95252",
+                    bg                 = "#f1d7d7",
+                    timeout            = 300,
+                    position           = "top_right",
+                    border_width       = 2,
+                    font               = "Ubuntu Mono Bold 10",
+                })
+            end
+            tempnotified = true
+        else
+            tempnotified = false
+        end
+        return "<span color='#dedd76'>" .. args[1] .. "°C</span>"
+        end,
+        5, { "thermal_zone0", "sys"} )
 -- }}
 
 musicwidget = awesompd:create() -- Create awesompd widget
@@ -212,7 +233,7 @@ mailwidget:buttons(awful.util.table.join(
 
 
 -- Create a textclock widget
-mytextclock = awful.widget.textclock("%a %b %d, %H:%M")
+mytextclock = awful.widget.textclock("%a %b %d, %H:%M", 5)
 
 -- Create a wibox for each screen and add it
 mywibox = {}

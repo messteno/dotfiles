@@ -15,7 +15,5 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { class = "Gimp" },
       properties = { floating = true } },
-    { rule = { class = "Gimp", role="gimp-toolbox" },
-      properties = { ontop = true } },
 }
 
