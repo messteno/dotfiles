@@ -1,0 +1,20 @@
+[
+    {
+        "clean": ["~"]
+    },
+    {
+        "link": {
+            "~/Src/dotfiles/": "",
+            "~/.tmux.conf": "tmux.conf",
+            "~/.vimrc": "vimrc"
+        }
+    },
+    {
+        "shell": [
+            [
+                "git submodule update --init --recursive",
+                "Installing submodules"
+            ]
+        ]
+    }
+]

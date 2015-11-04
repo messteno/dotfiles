@@ -1,7 +1,0 @@
-[Unit]
-Description=Xinitrc Stuff
-After=environment.target
-Wants=environment.target
-
-[Install]
-Alias=default.target
