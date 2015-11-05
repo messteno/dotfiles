@@ -10,7 +10,8 @@
             "~/.zshrc": "zshrc",
             "~/.zsh": "zsh",
             "~/.rtorrent.rc": "rtorrent.rc",
-            "~/.Xdefaults": "Xdefaults"
+            "~/.Xdefaults": "Xdefaults",
+            "~/.urlview": "urlview"
         }
     },
     {
