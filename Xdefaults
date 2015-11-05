@@ -1,0 +1,69 @@
+URxvt*keysym.Home: \033[1~
+URxvt*keysym.End: \033[4~
+
+URxvt.scrollBar:         false
+URxvt*loginShell:        true
+URxvt*scrollWithBuffer:  false
+URxvt*fading:            5
+URxvt*visualBell:        false
+URxvt.font:              xft:Ubuntu Mono:pixelsize=15:Regular
+URxvt.boldFont:          xft:Ubuntu Mono:pixelsize=15:Bold
+URxvt.italicFont:        xft:Ubuntu Mono:pixelsize=15:Italic
+URxvt.boldItalicFont:    xft:Ubuntu Mono:pixelsize=15:Bold:Italic
+
+URxvt.keysym.KP_Add:        +
+URxvt.keysym.KP_Subtract:   -
+URxvt.keysym.KP_Multiply:   *
+URxvt.keysym.KP_Divide:     /
+URxvt.keysym.KP_Decimal:    .
+URxvt.keysym.KP_Separator:  ,
+URxvt.keysym.KP_1:          1
+URxvt.keysym.KP_2:          2
+URxvt.keysym.KP_3:          3
+URxvt.keysym.KP_4:          4
+URxvt.keysym.KP_5:          5
+URxvt.keysym.KP_6:          6
+URxvt.keysym.KP_7:          7
+URxvt.keysym.KP_8:          8
+URxvt.keysym.KP_9:          9
+URxvt.keysym.KP_0:          0
+
+URxvt.background:   #242424
+URxvt*foreground:   #d0d0d0
+
+URxvt*cursorColor:  #d0d0d0
+
+URxvt*colorBD:      #3579a8
+URxvt*colorUL:      #4eb4fa
+
+!black
+URxvt*color0:       #000000
+URxvt*color8:       #1c1c1c
+
+!red
+URxvt*color1:       #960050
+URxvt*color9:       #c02d59
+
+!green
+URxvt*color2:       #66aa11
+URxvt*color10:      #80ff00
+
+!yellow
+URxvt*color3:       #c47f2c
+URxvt*color11:      #ffba68
+
+!blue
+URxvt*color4:       #30309b
+URxvt*color12:      #5f5fee
+
+!magenta
+URxvt*color5:       #7e40a5
+URxvt*color13:      #bb88dd
+
+!cyan
+URxvt*color6:       #3579a8
+URxvt*color14:      #4eb4fa
+
+!white
+URxvt*color7:       #5f5f5f
+URxvt*color15:      #d0d0d0
