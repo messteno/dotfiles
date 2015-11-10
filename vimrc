@@ -11,7 +11,8 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'scrooloose/nerdcommenter'
-nmap <C-_> <leader>c<space> nmap gcc <C-_>
+nmap <C-_> <leader>c<space>
+nmap gcc <C-_>
 vmap <C-_> <leader>c<space> gv
 vmap gc <C-_>
 
