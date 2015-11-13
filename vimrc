@@ -23,8 +23,8 @@ let g:ycm_global_ycm_extra_conf = '/home/mesteno/.vim/ycm_extra_conf.py'
 let g:ycm_complete_in_comments = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-"let g:ycm_autoclose_preview_window_after_insertion = 1
+"let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 "let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_min_num_of_chars_for_completion = 1
@@ -143,7 +143,7 @@ if $TERM == 'xterm-256color'
 endif
 
 " Basic settings
-set viminfo='1000,f1,:1000,/1000,n~/.vim-tmp/viminfo
+set viminfo='1000,f1,:1000,/1000,n~/.vim/tmp/viminfo
 set noswapfile
 "set backup
 "set backupdir=~/.vim-tmp,/var/tmp,/tmp
@@ -177,7 +177,6 @@ set wildmenu " Visualize complete menu in command mode
 set wildignore=*.o,*~,*.pyc
 set list listchars=tab:\ \ ,trail:·
 colorscheme monokai
-
 
 " Return to last edit position when opening files (You want this!)
 autocmd BufReadPost *
@@ -382,10 +381,8 @@ map k gk
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <C-j> mz:m+<cr>`z
 nmap <C-k> mz:m-2<cr>`z
-vmap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
 map <leader>a ggVG
+
 
 " Fast saving
 nmap <leader>w :w!<cr>
