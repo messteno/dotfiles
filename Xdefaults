@@ -6,10 +6,10 @@ URxvt*loginShell:        true
 URxvt*scrollWithBuffer:  false
 URxvt*fading:            5
 URxvt*visualBell:        false
-URxvt.font:              xft:Ubuntu Mono:pixelsize=15:Regular
-URxvt.boldFont:          xft:Ubuntu Mono:pixelsize=15:Bold
-URxvt.italicFont:        xft:Ubuntu Mono:pixelsize=15:Italic
-URxvt.boldItalicFont:    xft:Ubuntu Mono:pixelsize=15:Bold:Italic
+URxvt.font:              xft:Ubuntu Mono:pixelsize=14:Regular
+URxvt.boldFont:          xft:Ubuntu Mono:pixelsize=14:Bold
+URxvt.italicFont:        xft:Ubuntu Mono:pixelsize=14:Italic
+URxvt.boldItalicFont:    xft:Ubuntu Mono:pixelsize=14:Bold:Italic
 
 URxvt.keysym.KP_Add:        +
 URxvt.keysym.KP_Subtract:   -
